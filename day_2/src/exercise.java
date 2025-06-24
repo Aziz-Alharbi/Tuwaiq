@@ -23,9 +23,13 @@ public class exercise {
 //        • Input: Weight (kg) = 70, Height (m) = 1.75
 //        • Expected Output: BMI = 22.86
 
+        System.out.println("Enter your Weight :");
+        Scanner Weight = new Scanner(System.in);
+        double weight = Weight.nextDouble();
 
-        double weight = 70.0;
-        double height = 1.75;
+        System.out.println("Enter your Weight :");
+        Scanner Height = new Scanner(System.in);
+        double height = Height.nextDouble();
 
         double bmi = weight / (height * height);
 
@@ -43,8 +47,12 @@ public class exercise {
 //        • Input: Obtained Marks = 85, Total Marks = 100
 //        • Expected Output: Percentage = 85.0%
 
+        System.out.println("Enter your mark out of 100 :");
+        Scanner Mark = new Scanner(System.in);
 
-        double mark = 85.0;
+        double mark = Mark.nextDouble();
+
+
         double Total = 100;
 
         double percentage = (mark / Total) * 100;
@@ -65,10 +73,17 @@ public class exercise {
 //        • Expected Output: Amount in EUR = 85.0
 
 
-        double Amount_USD = 100;
+
+        System.out.println("Enter your amount in one USD :");
+
+        Scanner amountUSD = new Scanner(System.in);
+
+        double amount_USD = amountUSD.nextDouble();
+
+
         double Exchange = 0.85;
 
-        double Eur = Amount_USD * Exchange;
+        double Eur = amount_USD * Exchange;
 
         System.out.println("Your Amount in EUR is " + Eur);
 
@@ -86,7 +101,10 @@ public class exercise {
 //        • Expected Output: Length of the string: 13 And Reversed string: "!dlroW,olleH"
 
 
-        String greeting = "Hello, World!";
+        System.out.println("Enter a sentence: ");
+
+        Scanner Sentence = new Scanner(System.in);
+        String greeting = Sentence.nextLine();
 
         String reversed = new StringBuilder(greeting).reverse().toString();
 
@@ -103,10 +121,13 @@ public class exercise {
 //        • Input: Sentence = "The quick brown fox jumps over the lazy dog", Start Index = 10, End Index = 20
 //        • Expected Output: "brown fox"
 
+        System.out.println("Enter a sentence: ");
 
-        String Sentence = "The quick brown fox jumps over the lazy dog";
+        Scanner Sentence = new Scanner(System.in);
 
-        String part = "Substring (10 to 20): " + Sentence.substring(10, 20);
+        String sentence = Sentence.nextLine();
+
+        String part = "Substring (10 to 20): " + sentence.substring(10, 20);
 
         System.out.println(part);
 
@@ -121,7 +142,13 @@ public class exercise {
 //        • Input: Sentence = "The quick brown fox jumps over the lazy dog", Keyword = "jumps"
 //        • Expected Output: Keyword "jumps" is present in the sentence.
 
-        String sentence = "The quick brown fox jumps over the lazy dog";
+
+        System.out.println("Enter a sentence: ");
+
+        Scanner Sentence = new Scanner(System.in);
+
+        String sentence = Sentence.nextLine();
+
         String part;
 
         if ( sentence.contains("jumps") ) {
@@ -142,8 +169,11 @@ public class exercise {
 //        • Expected Output: "The quick brown cat jumps over the lazy dog"
 
 
+        System.out.println("Enter a sentence: ");
 
-        String sentence = "The quick brown fox jumps over the lazy dog";
+        Scanner Sentence = new Scanner(System.in);
+
+        String sentence = Sentence.nextLine();
 
         String replacement = sentence.replace("fox", "cat");
         System.out.println( replacement ); // remove all spaces
@@ -159,9 +189,21 @@ public class exercise {
 //            • Input: String 1 = "Hello", String 2 = "hello"
 //            • Expected Output: Strings are equal (ignoring case).
 
-        String word1 = "Hello";
-        String word2 = "hello";
+        System.out.println("Enter your first word! : ");
 
+        Scanner word = new Scanner(System.in);
+
+
+        String word1 = word.nextLine();
+
+
+
+
+        System.out.println("Enter your second word! : ");
+
+        Scanner secondWord = new Scanner(System.in);
+
+        String word2 = secondWord.nextLine();
 
         boolean what = word1.equalsIgnoreCase(word2);
 
