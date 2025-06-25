@@ -5,7 +5,7 @@ public class Exercise {
 
     public static void main(String[] args) {
 
-        // Q5();
+         Q2();
 
     }
 
@@ -65,15 +65,15 @@ public class Exercise {
         Double number3 = numbers3.nextDouble();
 
 
-        if (number1 > number2 && number1 > number3) {
+        if (number1 >= number2 && number1 >= number3) {
 
             System.out.println(number1 + " is the greatest number");
 
-        } else if (number2 > number1 && number2 > number3) {
+        } else if (number2 >= number1 && number2 >= number3) {
 
             System.out.println(number2 + " is the greatest number");
 
-        }else if (number3 > number1 && number3 > number2) {
+        }else if (number3 >= number1 && number3 >= number2) {
 
 
             System.out.println(number3 + " is the greatest number");
@@ -198,11 +198,11 @@ public class Exercise {
 
             int age = Age.nextInt();
 
-            if (age > 13){
+            if (age < 13){
 
                 System.out.println("You are a child");
 
-            } else if ( age >= 13 && age >= 19) {
+            } else if ( age >= 13 && age <= 19) {
 
                 System.out.println("You are a teenager");
             }
