@@ -4,22 +4,6 @@ public class Main {
 
 
 
-
-        Student s = new Student("Aziz", 20, 3.8, "aziz@example.com", "0555555555");
-//
-//        System.out.println(s.getName());  // Aziz
-//        System.out.println(s.getGPA());   // 3.8
-//
-//
-//        System.out.println();
-
-        Instructor ins = new Instructor("Ahmed", 20, "Hello@gmail.com", "05555555", 1);
-
-//        System.out.println(ins.getName());
-
-
-
-
         Circle c1 = new Circle();
         Circle c2 = new Circle(2.5, "red", true);
         Circle c3 = new Circle(4.0, "blue", false);
