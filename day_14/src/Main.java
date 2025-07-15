@@ -3,10 +3,10 @@ public class Main {
 
 
 
-        final String name = "Aziz";
-
-        Animal a1 = new Dog();
-        Animal a2 = new Cat();
+//        final String name = "Aziz";
+//
+//        Animal a1 = new Dog();
+//        Animal a2 = new Cat();
 
       //  Animal a3 = new Animal();
 
@@ -18,8 +18,8 @@ public class Main {
 //        a1.sleep();// Sleeping...
 
 
-        Flyable f1 = new Bird();
-        Flyable f2 = new Airplane();
+//        Flyable f1 = new Bird();
+//        Flyable f2 = new Airplane();
 
 //        f1.fly(); // Bird flies using wings.
 //        f2.fly(); // Airplane flies using engines.
