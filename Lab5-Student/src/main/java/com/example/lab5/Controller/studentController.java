@@ -1,0 +1,131 @@
+package com.example.lab5.Controller;
+
+import com.example.lab5.Model.Student;
+import org.springframework.web.bind.annotation.*;
+
+import java.awt.geom.GeneralPath;
+import java.util.ArrayList;
+
+@RestController
+@RequestMapping("/api/v1/student")
+
+public class studentController {
+
+
+    //• Create a new student (ID, name, age, degree, GPA)
+    //• Display all students.
+    //• Update a student
+    //• Delete a student
+    //• Based on GPA, classify students into honors categories.
+    //• Display a group of students whose GPA is greater than the average
+    //GPA.
+
+
+    ArrayList <Student> students = new ArrayList<>();
+    ArrayList <Student> bestStudents = new ArrayList<>();
+    ArrayList <Student> secondStudents = new ArrayList<>();
+    ArrayList <Student> thirdStudents = new ArrayList<>();
+
+
+    @PostMapping("/Student")
+    public Student addStudent(@RequestBody Student student){
+
+
+        students.add(student);
+
+
+        return student;
+    }
+
+    @GetMapping("/Students")
+    public ArrayList<Student> getStudents(){
+
+        return students;
+    }
+
+    @PutMapping("/Updating/{id}")
+    public String updateStudent(@RequestBody Student newStudent, @PathVariable String id){
+
+
+        for (Student student : students) {
+            if (student.getId().equals(id)) {
+                student.setName(newStudent.getName());
+                student.setName(newStudent.getName());
+                student.setAge(newStudent.getAge());
+                student.setDegree(newStudent.getDegree());
+                student.setGpa(newStudent.getGpa());
+                return "Student has been updated!";
+            }
+        }
+
+        return "Student not found!";
+    }
+
+    @DeleteMapping("Deleting")
+    public String deleteStudent (@PathVariable int index){
+
+        students.remove(index);
+
+
+
+        return "Student has been deleted !";
+    }
+
+
+    @GetMapping("/Classification")
+    public String classifyGPA(@PathVariable double GPA){
+
+
+        if(GPA > 3.5){
+            return "1st Class honor";
+        }
+        else if (3.5 > GPA && GPA > 2.5){
+
+            return "2nd Class honor";
+
+        } else if (2.5 > GPA) {
+
+            return "3rd Class honor";
+        }
+        else{
+            return "invalid GPA";
+        }
+
+    }
+
+    @GetMapping("/Highest")
+    public ArrayList<Student> getBestStudents() {
+
+
+        for (Student student : students) {
+
+
+            if (student.getGpa() > 3.5) {
+                bestStudents.add(student);
+            } else if (student.getGpa() < 3.5 && student.getGpa() > 2.5) {
+
+                secondStudents.add(student);
+            } else if (student.getGpa() < 2.5) {
+                thirdStudents.add(student);
+            }
+
+        }
+
+
+        if (bestStudents.isEmpty() && !secondStudents.isEmpty()) {
+            return secondStudents;
+        } else if (!bestStudents.isEmpty()) {
+            return bestStudents;
+        } else if (bestStudents.isEmpty() && secondStudents.isEmpty() && !thirdStudents.isEmpty()) {
+            return thirdStudents;
+        } else {
+            return bestStudents;
+        }
+
+    }
+
+
+
+
+
+}
