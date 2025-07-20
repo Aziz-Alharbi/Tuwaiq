@@ -1,15 +1,15 @@
 package com.example.lab5.Controller;
 
+import com.example.lab5.Api.ApiResponse;
 import com.example.lab5.Model.Student;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.geom.GeneralPath;
 import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/api/v1/student")
 
-public class studentController {
+public class TrackerController {
 
 
     //• Create a new student (ID, name, age, degree, GPA)
@@ -44,7 +44,7 @@ public class studentController {
     }
 
     @PutMapping("/Updating/{id}")
-    public String updateStudent(@RequestBody Student newStudent, @PathVariable String id){
+    public ApiResponse updateStudent(@RequestBody Student newStudent, @PathVariable String id){
 
 
         for (Student student : students) {
@@ -54,41 +54,61 @@ public class studentController {
                 student.setAge(newStudent.getAge());
                 student.setDegree(newStudent.getDegree());
                 student.setGpa(newStudent.getGpa());
-                return "Student has been updated!";
+                return
+                        new ApiResponse("Student updated successfully !" , 200)
+
+                        ;
             }
         }
 
-        return "Student not found!";
-    }
+        return
+                new ApiResponse("Student not found !" , 200)
+
+                ;
+        }
 
     @DeleteMapping("Deleting")
-    public String deleteStudent (@PathVariable int index){
+    public ApiResponse deleteStudent (@PathVariable int index){
 
         students.remove(index);
 
 
 
-        return "Student has been deleted !";
-    }
+        return
+                new ApiResponse("Student deleted successfully !" , 200)
+
+                ;
+        }
 
 
     @GetMapping("/Classification")
-    public String classifyGPA(@PathVariable double GPA){
+    public ApiResponse classifyGPA(@PathVariable double GPA){
 
 
         if(GPA > 3.5){
-            return "1st Class honor";
+            return
+                    new ApiResponse("1st Class honor !" , 200)
+
+                    ;
         }
         else if (3.5 > GPA && GPA > 2.5){
 
-            return "2nd Class honor";
+            return
+                    new ApiResponse("2nd Class honor !" , 200)
 
+                    ;
         } else if (2.5 > GPA) {
 
-            return "3rd Class honor";
+            return
+                    new ApiResponse("3rd Class honor !" , 200)
+
+                    ;
         }
         else{
-            return "invalid GPA";
+            return
+                    new ApiResponse("invalid GPA !" , 200)
+
+                    ;
         }
 
     }
